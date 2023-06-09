@@ -9,6 +9,6 @@ import SwiftUI
 import DoerDayApp
 
 @main
-struct FloxBxApp: Application {
+struct DoerDayApp: Application {
    @ApplicationDelegateAdaptor var appDelegate: AppDelegate
 }

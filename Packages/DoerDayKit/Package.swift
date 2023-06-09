@@ -1,11 +1,11 @@
-// swift-tools-version:5.7
+// swift-tools-version:5.9
 // swiftlint:disable explicit_top_level_acl explicit_acl
 
 import PackageDescription
 
 let package = Package(
   name: "DoerDayKit",
-  platforms: [.macOS(.v13), .iOS(.v16), .watchOS(.v9)],
+  platforms: [.macOS(.v14), .iOS(.v17), .watchOS(.v10)],
   products: [
     .library(
       name: "DoerDayApp",
@@ -46,7 +46,8 @@ let package = Package(
     )
   ],
   targets: [
-    .target(name: "DoerDayApp"),
+    .target(name: "DoerDayApp", dependencies: ["DoerDayViews"]),
+    .target(name: "DoerDayViews"),
     .target(name: "FloxBxUtilities"),
     .target(name: "FloxBxModels", dependencies: [
       "FloxBxUtilities"
