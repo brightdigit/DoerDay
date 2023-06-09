@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import FloxBxUI
+import DoerDayApp
 
 @main
 struct FloxBxApp: Application {

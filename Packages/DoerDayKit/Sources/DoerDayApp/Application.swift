@@ -1,5 +1,4 @@
 #if canImport(SwiftUI)
-  import FloxBxModels
   import os
   import SwiftUI
 
@@ -10,7 +9,7 @@
   extension Application {
     public var body: some Scene {
       WindowGroup {
-        ContentView()
+        EmptyView()
       }
     }
   }

@@ -4,9 +4,13 @@
 import PackageDescription
 
 let package = Package(
-  name: "FloxBx",
+  name: "DoerDayKit",
   platforms: [.macOS(.v13), .iOS(.v16), .watchOS(.v9)],
   products: [
+    .library(
+      name: "DoerDayApp",
+      targets: ["DoerDayApp"]
+    ),
     .library(
       name: "FloxBxUI",
       targets: ["FloxBxUI"]
@@ -42,6 +46,7 @@ let package = Package(
     )
   ],
   targets: [
+    .target(name: "DoerDayApp"),
     .target(name: "FloxBxUtilities"),
     .target(name: "FloxBxModels", dependencies: [
       "FloxBxUtilities"
