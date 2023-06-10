@@ -13,7 +13,16 @@ struct Item : Identifiable {
   let order : Int
   let name : String
   let completedAt : Date?
+  
+  init(dueAt: Date?, order: Int, name: String, completedAt: Date?) {
+    self.dueAt = dueAt
+    self.order = order
+    self.name = name
+    self.completedAt = completedAt
+  }
 }
+
+
 struct RootView: View {
   let items = taskNames.map { name in
     Item(dueAt: .init(timeIntervalSinceNow: -.random(in: 100000...400000)), order: .random(in: 0...256), name: name, completedAt: nil)

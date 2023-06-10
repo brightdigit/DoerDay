@@ -6,10 +6,45 @@
 //
 
 import SwiftUI
+import Observation
+
+@Observable
+final class Sheet {
+  var items =   taskNames.map { name in
+    Item(dueAt: .init(timeIntervalSinceNow: -.random(in: 100000...400000)), order: .random(in: 0...256), name: name, completedAt: nil)
+  }.sorted {
+    $0.order > $1.order
+  }
+}
 
 struct EditSheetView: View {
+  var sheet = Sheet()
+  func move(from source: IndexSet, to destination: Int) {
+      // move the data here
+    print(source, destination)
+  }
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+      NavigationStack {
+        List{
+          ForEach(sheet.items) { item in
+            HStack(content: {
+              Text(item.name)
+              Spacer()
+              Text("\(item.order)").font(.caption).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+            })
+          }.onMove(perform: move)
+        }.listStyle(.inset)
+        .navigationTitle("23-06-09")
+        .toolbar(content: {
+          ToolbarItem(placement: .status) {
+            Button {
+              
+            } label: {
+              Text("Start New Sheet")
+            }
+          }
+        })
+      }
     }
 }
 
